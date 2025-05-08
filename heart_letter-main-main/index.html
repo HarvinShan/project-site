@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Letter by Alexx_Deev</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="passcode-section">
+  <h2>Enter the Secret Date</h2>
+  <input type="text" id="passcode" placeholder="DDMMYYYY">
+  <button onclick="checkPasscode()">Submit</button>
+</div>
+
+<div class="envlope-wrapper" style="display: none;">
+  <div id="envelope" class="close">
+    <div class="front flap"></div>
+    <div class="front pocket"></div>
+    <div class="letter">
+      <div class="words line1"></div>
+      <div class="words line2"></div>
+      <div class="words line3"></div>
+      <div class="words line4"></div>
+    </div>
+    <div class="hearts">
+      <div class="heart a1"></div>
+      <div class="heart a2"></div>
+      <div class="heart a3"></div>
+    </div>
+  </div>
+</div>
+
+<div class="reset" style="display: none;">
+  <button id="open">Open</button>
+  <button id="reset">Reset</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script>
+  function checkPasscode() {
+    const entered = document.getElementById('passcode').value.trim();
+    const correct = '05102004'; // adjust this to the correct date
+
+    if (entered === correct) {
+      alert('Correct! Now you can open the envelope.');
+      document.getElementById('passcode-section').style.display = 'none';
+      document.querySelector('.envlope-wrapper').style.display = 'block';
+      document.querySelector('.reset').style.display = 'block';
+    } else {
+      alert('Wrong passcode, please try again.');
+    }
+  }
+
+  $(document).ready(function() {
+    $('#open').click(function() {
+      setTimeout(function() {
+        window.location.href = 'valentine.html';
+      }, 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
